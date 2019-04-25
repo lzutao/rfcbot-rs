@@ -9,7 +9,6 @@ use rocket::data::{self, Data, FromDataSimple};
 use rocket::http::Status;
 use rocket::outcome::Outcome::*;
 use rocket::request::Request;
-use serde_json;
 
 use crate::config::CONFIG;
 use crate::error::{DashError, DashResult};
@@ -24,7 +23,7 @@ pub struct Event {
 
 impl FromDataSimple for Event {
     type Error = &'static str;
-    fn from_data(request: &Request, data: Data) -> data::Outcome<Self, Self::Error> {
+    fn from_data(request: &Request<'_>, data: Data) -> data::Outcome<Self, Self::Error> {
         let headers = request.headers();
 
         // see [this document](https://developer.github.com/webhooks/securing/) for more information

@@ -34,7 +34,7 @@ impl Label {
 }
 
 impl fmt::Display for Label {
-    fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result { fmt.write_str(self.as_str()) }
+    fn fmt(&self, fmt: &mut fmt::Formatter<'_>) -> fmt::Result { fmt.write_str(self.as_str()) }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

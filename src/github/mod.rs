@@ -7,7 +7,6 @@ mod nag;
 pub mod webhooks;
 
 use chrono::{DateTime, NaiveDate, NaiveDateTime, NaiveTime, Utc};
-use diesel;
 use diesel::pg::PgConnection;
 use diesel::prelude::*;
 

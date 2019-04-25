@@ -2,7 +2,6 @@ use std::collections::BTreeSet;
 use std::sync::Mutex;
 
 use chrono::{Duration, Utc};
-use diesel;
 use diesel::prelude::*;
 
 use itertools::Itertools;
@@ -722,7 +721,7 @@ fn existing_proposal(issue: &Issue) -> DashResult<Option<FcpProposal>> {
         .optional()?)
 }
 
-fn post_insert_comment(issue: &Issue, comment: CommentType) -> DashResult<IssueComment> {
+fn post_insert_comment(issue: &Issue, comment: CommentType<'_>) -> DashResult<IssueComment> {
     let conn = &*DB_POOL.get()?;
 
     let comment = RfcBotComment::new(issue, comment);
@@ -1136,7 +1135,7 @@ impl<'a> RfcBotComment<'a> {
         msg.push_str("` label, please do so.*");
     }
 
-    fn format(issue: &Issue, comment_type: &CommentType) -> String {
+    fn format(issue: &Issue, comment_type: &CommentType<'_>) -> String {
         match *comment_type {
             CommentType::QuestionAsked {
                 initiator,

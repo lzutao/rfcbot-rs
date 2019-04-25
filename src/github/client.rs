@@ -8,7 +8,6 @@ use std::u32;
 use chrono::{DateTime, Utc};
 use reqwest::{self, header::HeaderMap, Response, StatusCode};
 use serde::de::DeserializeOwned;
-use serde_json;
 
 use crate::config::CONFIG;
 use crate::domain::github::GitHubUser;

@@ -2,7 +2,6 @@ use std::collections::BTreeMap;
 use std::sync::{Arc, RwLock};
 
 use diesel::prelude::*;
-use toml;
 
 use super::DB_POOL;
 use crate::domain::github::GitHubUser;

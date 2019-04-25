@@ -1,4 +1,3 @@
-use rocket;
 use rocket_contrib::templates::handlebars::Handlebars;
 use std::panic::catch_unwind;
 
