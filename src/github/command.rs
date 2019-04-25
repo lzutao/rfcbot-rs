@@ -1,9 +1,9 @@
 use std::collections::BTreeSet;
 use std::fmt;
 
-use config::RFC_BOT_MENTION;
-use error::{DashError, DashResult};
-use teams::{RfcbotConfig, TeamLabel};
+use crate::config::RFC_BOT_MENTION;
+use crate::error::{DashError, DashResult};
+use crate::teams::{RfcbotConfig, TeamLabel};
 
 #[derive(Copy, Clone, PartialEq, Eq, Hash)]
 pub enum Label {
@@ -278,7 +278,7 @@ impl<'a> RfcBotCommand<'a> {
 #[cfg(test)]
 mod test {
     use super::*;
-    use teams::test::TEST_SETUP;
+    use crate::teams::test::TEST_SETUP;
 
     fn parse_commands(body: &str) -> impl Iterator<Item = RfcBotCommand<'_>> {
         RfcBotCommand::from_str_all(&TEST_SETUP, body)

@@ -48,7 +48,7 @@ use diesel::r2d2::Pool;
 use env_logger::LogBuilder;
 use log::LogRecord;
 
-use config::CONFIG;
+use crate::config::CONFIG;
 
 fn main() {
     // init environment variables, CLI, and logging

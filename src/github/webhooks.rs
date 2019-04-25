@@ -11,9 +11,9 @@ use rocket::outcome::Outcome::*;
 use rocket::request::Request;
 use serde_json;
 
-use config::CONFIG;
-use error::{DashError, DashResult};
-use github::models::{CommentFromJson, IssueFromJson, PullRequestFromJson};
+use crate::config::CONFIG;
+use crate::error::{DashError, DashResult};
+use crate::github::models::{CommentFromJson, IssueFromJson, PullRequestFromJson};
 
 #[derive(Debug)]
 pub struct Event {
